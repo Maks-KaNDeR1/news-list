@@ -13,10 +13,6 @@ const App = () => {
     saveNews(news);
   }, [news]);
 
-  useEffect(() => {
-    localStorage.setItem('news', JSON.stringify(news));
-  }, [news]);
-
   const addNews = (newNews: Omit<NewsItem, 'id' | 'date'>) => {
     setNews([...news, { ...newNews, id: Date.now(), date: new Date().toISOString() }]);
   };
